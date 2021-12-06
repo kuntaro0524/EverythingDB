@@ -25,7 +25,7 @@ export const DisplayApps = (props) => {
             <Table variant="striped" colorScheme="teal">
                 <TableCaption> BINDS application list </TableCaption>
                 <Tbody>
-                {apps.map((app) => (
+                {apps.filter(app => app.status.includes("支援中")).map((app) => (
                     <Tr key={app._id}>
                           <Checkbox size="md" colorScheme="green" defaultIsChecked />
                         <Td>
