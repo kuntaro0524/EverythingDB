@@ -1,0 +1,28 @@
+export type AppInfo = {
+  _id: string;
+  id: number;
+  oldid: null;
+  pdis: null;
+  consul_date: string;
+  apply_date: string;
+  start_date: string;
+  complete_date: string;
+  category: string;
+  status: string;
+  username: string;
+  email: string;
+  affiliation: string;
+  affiliation2: string;
+  position: string;
+  beamtime_id: string;
+  title: string;
+  amed_related: string;
+  division: string;
+  designated_staff_name: string;
+  corresponding_division: string;
+  main_staff: string;
+  division_pi: string;
+  corresponding_division2: string;
+  sub_staffs: string;
+  isRieki: string;
+};

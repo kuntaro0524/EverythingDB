@@ -20,6 +20,7 @@ export const DisplayApps = (props) => {
   const onClickTest = useCallback((e) => {
     const button_id = parseInt(e.target.id);
     const targetUser = apps.find((app) => app.id === button_id);
+    console.log(button_id);
     setTargetUser(targetUser);
     console.log(targetUser);
     onOpen();

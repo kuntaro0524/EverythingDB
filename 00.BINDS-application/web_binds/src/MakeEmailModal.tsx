@@ -14,14 +14,18 @@ import {
   ModalFooter,
 } from "@chakra-ui/react";
 
+import { AppInfo } from "./components/types/api/AppInfo";
+
 type Props = {
-  target_user: {};
+  user: AppInfo | null;
   isOpen: boolean;
+  onOpen: () => void;
   onClose: () => void;
 };
 
 export const MakeEmailModal: VFC<Props> = memo((props) => {
-  const { target_user, isOpen, onClose } = props;
+  const { user, isOpen, onOpen, onClose } = props;
+  console.log(user);
 
   return (
     <div>
@@ -43,13 +47,14 @@ export const MakeEmailModal: VFC<Props> = memo((props) => {
                 <FormLabel>名前</FormLabel>
                 <Input
                   // useState()で管理している値になった
-                  value={target_user.username}
+                  value={user?.username}
+                  //   value="UNKOSHITA"
                   isReadOnly
                 />
               </FormControl>
               <FormControl>
                 <FormLabel>課題名</FormLabel>
-                <Input value={target_user.apptitle} isReadOnly />
+                <Input value={user?.title} isReadOnly />
               </FormControl>
             </Stack>
           </ModalBody>
