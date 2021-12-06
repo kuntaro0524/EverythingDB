@@ -25,7 +25,7 @@ export const DisplayApps = (props) => {
             <Table variant="striped" colorScheme="teal">
                 <TableCaption> BINDS application list </TableCaption>
                 <Tbody>
-                {apps.filter(app => app.status.includes("支援中")).map((app) => (
+                {apps.filter(app => app.status.includes("支援中")).filter(app => app.main_staff.includes("平田　邦生")).map((app) => (
                     <Tr key={app._id}>
                           <Checkbox size="md" colorScheme="green" defaultIsChecked />
                         <Td>
@@ -41,7 +41,7 @@ export const DisplayApps = (props) => {
                             {app.main_staff}
                         </Td>
                         <Td>
-                        <Button onClick={onClickTest} colorScheme="blue"> Modify </Button>
+                        <Button onClick={onClickTest} colorScheme="blue"> Generate E-mail </Button>
                         </Td>
                     </Tr>
                 ))}
