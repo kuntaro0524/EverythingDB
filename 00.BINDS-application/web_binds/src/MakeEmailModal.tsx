@@ -15,6 +15,7 @@ import {
 } from "@chakra-ui/react";
 
 import { AppInfo } from "./components/types/api/AppInfo";
+import { SupportEmail } from "./components/atom/EmailSentense/SupportEmail";
 
 type Props = {
   user: AppInfo | null;
@@ -34,6 +35,7 @@ export const MakeEmailModal: VFC<Props> = memo((props) => {
         onClose={onClose}
         autoFocus={false}
         motionPreset="slideInBottom"
+        size="full"
       >
         <ModalOverlay />
         <ModalContent pb={6}>
@@ -56,6 +58,16 @@ export const MakeEmailModal: VFC<Props> = memo((props) => {
                 <FormLabel>課題名</FormLabel>
                 <Input value={user?.title} isReadOnly />
               </FormControl>
+              {user !== null && user.username !== undefined && (
+                <FormControl>
+                  <SupportEmail
+                    username={user?.username}
+                    email={user?.email}
+                    app_id={user?.id}
+                    app_title={user?.title}
+                  />
+                </FormControl>
+              )}
             </Stack>
           </ModalBody>
         </ModalContent>

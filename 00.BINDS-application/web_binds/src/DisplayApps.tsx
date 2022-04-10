@@ -28,9 +28,14 @@ export const DisplayApps: VFC<Props> = (props) => {
   // という方法が実装できるようだったので詳細がわかるまではこの方法で実装を進める。
   // ここではボタンを押したときのonClickに対して、eventとそれぞれの課題のIDを渡している。
   const onClickTest = useCallback((e, _id) => {
+    // ここの挙動がひたすらあやしい→できるときとできないときがある・・・
+    // 以下の一行を入れるだけで、正しく挙動したりする。抜くとうまくいかなくなったり。
+    // 謎
+    console.log("onClickTest was called");
+
     if (apps != null) {
       const targetUser = apps.find((app) => app._id === _id);
-      console.log(targetUser);
+      // console.log("Target_USER=" + targetUser);
       if (targetUser != null) {
         setTargetUser(targetUser);
       }
